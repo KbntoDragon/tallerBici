@@ -42,11 +42,14 @@ public class Modelo {
     @ManyToOne
     @JoinColumn (name = "marca_id")
     private Marca marca;
+<<<<<<< HEAD
+=======
 
 
     
 
 
 
+>>>>>>> 76bcbb9afd70db24e105dfb4c6fb29c7194a72d8
 
 }
