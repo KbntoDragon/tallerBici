@@ -1,5 +1,7 @@
 package com.tallerBici.proyecto.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -50,7 +52,7 @@ public class Cliente {
 
     @OneToMany
     @JoinColumn (name = "bicleta_id")
-    private Bicicleta bicicleta;
+    private List<Bicicleta> bicicletas;
 
 
 
