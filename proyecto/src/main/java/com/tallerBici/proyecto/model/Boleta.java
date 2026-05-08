@@ -3,6 +3,7 @@ package com.tallerBici.proyecto.model;
 import java.util.List;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -10,7 +11,18 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "boletas")
 public class Boleta {
 
   @Id
@@ -27,34 +39,30 @@ public class Boleta {
     )
     private List<Empleado> empleados;
 
-    @ManyToOne
-    @JoinColumn (name = "TipoPago_id")
-    private TipoPago tipoPago;
+  @ManyToOne
+  @JoinColumn (name = "TipoPago_id")
+  private TipoPago tipoPago;
 
-<<<<<<< HEAD
-    @ManyToMany
-    @JoinTable(
-      name = "boleta_producto",
-      joinColumns = @JoinColumn(name = "boleta_id"),
-      inverseJoinColumns = @JoinColumn(name = "producto_id")
-    )
-    private List<Producto> productos;
+  @ManyToMany
+  @JoinTable(name = "boletas_productos",
+    joinColumns = @JoinColumn(name = "boleta_id"),
+    inverseJoinColumns = @JoinColumn(name = "producto_id")
+  )
+  private List<Producto> productos;
 
-    @ManyToMany
-    @JoinTable(
-      name = "boleta_repuesto",
-      joinColumns = @JoinColumn(name = "boleta_id"),
-      inverseJoinColumns = @JoinColumn(name = "repuesto_id")
-    )
-    private List<Repuesto> repuestos;
+  @ManyToMany
+  @JoinTable(name = "boletas_repuestos",
+    joinColumns = @JoinColumn(name = "boleta_id"),
+    inverseJoinColumns = @JoinColumn(name = "repuesto_id")
+  )
+  private List<Repuesto> repuestos;
 
-    @ManyToMany
-    @JoinTable(
-      name = "boleta_servicio",
-      joinColumns = @JoinColumn(name = "boleta_id"),
-      inverseJoinColumns = @JoinColumn(name = "servicio_id")
-    )
-    private List<Servicio> servicios;
-=======
->>>>>>> 76bcbb9afd70db24e105dfb4c6fb29c7194a72d8
+
+  @ManyToMany
+  @JoinTable(name = "boletas_servicios",
+    joinColumns = @JoinColumn(name = "boleta_id"),
+    inverseJoinColumns = @JoinColumn(name = "servicio_id")
+  )
+  private List<Servicio> servicios;
+  
 }
