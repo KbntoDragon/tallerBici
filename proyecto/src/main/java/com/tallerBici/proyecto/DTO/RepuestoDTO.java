@@ -9,7 +9,8 @@ public class RepuestoDTO {
     private Integer id;
     private String nombreRepuesto;
     private Double precio;
+    private Integer stockRepuesto;
     private String codigoBarras;
-    private List<String> boletas;
+    private List<Integer> boletas;
 
 }

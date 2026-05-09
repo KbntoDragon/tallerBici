@@ -9,6 +9,7 @@ import com.tallerBici.proyecto.model.Producto;
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Integer> {
 
-    List<Producto> findByStock(Integer stock); 
-    List<Producto> findByNombreContainingIgnoreCase(String nombreProducto);
+    List<Producto> findBystockLessThan(Integer stock);
+    List<Producto> findByNombreProductoContainingIgnoreCase(String nombreProducto);
+    List<Producto> findBycodigoBarras(String codigoBarra);
 }

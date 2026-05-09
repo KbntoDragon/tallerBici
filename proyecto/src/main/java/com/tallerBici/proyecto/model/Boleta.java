@@ -39,31 +39,30 @@ public class Boleta {
     )
     private List<Empleado> empleados;
 
-    @ManyToOne
-    @JoinColumn (name = "TipoPago_id")
-    private TipoPago tipoPago;
+  @ManyToOne
+  @JoinColumn (name = "TipoPago_id")
+  private TipoPago tipoPago;
 
-    @ManyToMany
-    @JoinTable(
-      name = "boletas_producto",
-      joinColumns = @JoinColumn(name = "boleta_id"),
-      inverseJoinColumns = @JoinColumn(name = "producto_id")
-    )
-    private List<Producto> productos;
+  @ManyToMany
+  @JoinTable(name = "boletas_productos",
+    joinColumns = @JoinColumn(name = "boleta_id"),
+    inverseJoinColumns = @JoinColumn(name = "producto_id")
+  )
+  private List<Producto> productos;
 
-    @ManyToMany
-    @JoinTable(
-      name = "boletas_repuesto",
-      joinColumns = @JoinColumn(name = "boleta_id"),
-      inverseJoinColumns = @JoinColumn(name = "repuesto_id")
-    )
-    private List<Repuesto> repuestos;
+  @ManyToMany
+  @JoinTable(name = "boletas_repuestos",
+    joinColumns = @JoinColumn(name = "boleta_id"),
+    inverseJoinColumns = @JoinColumn(name = "repuesto_id")
+  )
+  private List<Repuesto> repuestos;
 
-    @ManyToMany
-    @JoinTable(
-      name = "boletas_servicio",
-      joinColumns = @JoinColumn(name = "boleta_id"),
-      inverseJoinColumns = @JoinColumn(name = "servicio_id")
-    )
-    private List<Servicio> servicios;
+
+  @ManyToMany
+  @JoinTable(name = "boletas_servicios",
+    joinColumns = @JoinColumn(name = "boleta_id"),
+    inverseJoinColumns = @JoinColumn(name = "servicio_id")
+  )
+  private List<Servicio> servicios;
+  
 }

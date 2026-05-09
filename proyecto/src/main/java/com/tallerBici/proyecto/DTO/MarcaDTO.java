@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class MarcaDTO {
     private Integer id;
-    private Integer nombre;
-    private List<String> bicicletas;
+    private String nombre;
+    private List<Integer> bicicletas;
 
 }

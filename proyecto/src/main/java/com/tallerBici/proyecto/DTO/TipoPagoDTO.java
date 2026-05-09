@@ -5,10 +5,8 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class ServicioDTO {
+public class TipoPagoDTO {
     private Integer id;
-    private String nombreServicio;
-    private String descServicio;
-    private Double valorDelServicio;
+    private String tipo;
     private List<Integer> boletas;
 }

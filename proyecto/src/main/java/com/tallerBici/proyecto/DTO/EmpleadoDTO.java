@@ -9,5 +9,5 @@ public class EmpleadoDTO {
     private Integer id;
     private String nombres;
     private String apellidos;
-    private List<String> boletas;
+    private List<Integer> boletas;
 }

@@ -9,5 +9,5 @@ import com.tallerBici.proyecto.model.Empleado;
 @Repository
 public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
 
-    List<Empleado> findByNombreContainingIgnoreCase(String nombres);
+    List<Empleado> findByNombresContainingIgnoreCase(String nombres);
 }

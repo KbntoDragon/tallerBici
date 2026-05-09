@@ -14,6 +14,6 @@ public class ProductoController {
 
     @GetMapping("/sin-stock")
     public List<Producto> sinStock() {
-        return productoService.obtenerProductosSinStock();
+        return productoService.obtenerProductoSinStock();
     }
 }

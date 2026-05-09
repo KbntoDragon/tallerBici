@@ -50,7 +50,7 @@ public class ClienteService {
             .orElseThrow(() -> new RuntimeException("No se encontró un cliente con el correo: " + correo));
 }
     public List<Cliente> buscarPorNombre(String nombre) {
-        List<Cliente> clientes = clienteRepository.findByNombre(nombre);
+        List<Cliente> clientes = clienteRepository.findByNombres(nombre);
         if (clientes.isEmpty()) {
           throw new RuntimeException("No se encontraron clientes que coincidan con: " + nombre);
     }

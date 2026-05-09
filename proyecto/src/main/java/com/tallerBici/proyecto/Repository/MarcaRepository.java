@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import com.tallerBici.proyecto.model.Marca;
 @Repository
 public interface MarcaRepository extends JpaRepository<Marca, Integer> {
-    Optional<Marca> findByNombreMarca(String nombre);
+     Optional<Marca> findByNombre(String nombre);
 }

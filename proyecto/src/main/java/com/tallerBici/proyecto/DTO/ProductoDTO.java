@@ -9,7 +9,8 @@ public class ProductoDTO {
     private Integer id;
     private String nombreProducto;
     private Double precio;
+    private Integer stock;
     private String codigoBarras;
-    private List<String> boletas;
+    private List<Integer> boletas;
 
 }

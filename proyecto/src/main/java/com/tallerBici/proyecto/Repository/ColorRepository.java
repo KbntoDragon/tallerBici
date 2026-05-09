@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import com.tallerBici.proyecto.model.Color;
 @Repository
 public interface ColorRepository extends JpaRepository<Color, Integer> {
-    Optional<Color> findByNombreColor(String nombre);
+    Optional<Color> findByNombre(String nombre);
 }

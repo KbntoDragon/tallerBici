@@ -11,5 +11,5 @@ import com.tallerBici.proyecto.model.Cliente;
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
     
     Optional<Cliente> findByCorreo(String correo);
-    List<Cliente> findByNombre(String nombres);
+    List<Cliente> findByNombres(String nombres);
 }
