@@ -24,24 +24,31 @@ public class BoletaController {
     private BoletaService boletaService;
 
     @GetMapping
-    public  ResponseEntity<BoletaDTO> obtenerBoletas(){
+    public ResponseEntity<List<BoletaDTO>> obtenerBoletas(){ 
         List<BoletaDTO> boletas = boletaService.obtenerBoletas();
         if(boletas.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(HttpStatus.OK);
+        // 2. Tienes que pasar la variable 'boletas' dentro del paréntesis
+        return new ResponseEntity<>(boletas, HttpStatus.OK); 
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<BoletaDTO> buscarPorId(@PathVariable Integer id){
-        return new ResponseEntity<>(boletaService.buscarPorId(id), HttpStatus.OK); 
+        BoletaDTO boletas = boletaService.buscarPorId(id);
+        return new ResponseEntity<>(boletas, HttpStatus.OK); 
     }
 
     @PostMapping
-    public ResponseEntity<Boleta> guardarBoleta(@RequestBody Boleta boleta){
+    public ResponseEntity<BoletaDTO> guardarBoleta(@RequestBody Boleta boleta){
+        // 1. Guardamos la boleta en la base de datos
         Boleta nuevaBoleta = boletaService.guardarBoleta(boleta);
-        return new ResponseEntity<>(nuevaBoleta, HttpStatus.CREATED);
-
+        
+        // 2. La convertimos a DTO antes de enviarla a Postman
+        BoletaDTO boletaDTO = boletaService.convertirADTO(nuevaBoleta);
+        
+        // 3. Retornamos el DTO
+        return new ResponseEntity<>(boletaDTO, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")

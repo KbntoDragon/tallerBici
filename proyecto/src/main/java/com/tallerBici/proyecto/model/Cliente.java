@@ -53,7 +53,7 @@ public class Cliente {
     private String telefono;
 
     @OneToMany
-    @JoinColumn (name = "bicleta_id")
+    @JoinColumn (name = "bicicleta_id")
     private List<Bicicleta> bicicletas;
 
 
